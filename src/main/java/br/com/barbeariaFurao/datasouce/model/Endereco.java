@@ -2,7 +2,6 @@ package br.com.barbeariaFurao.datasouce.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +22,7 @@ public class Endereco implements Serializable{
 	private Long id;
 	private String logradouro;
 
-	@Column(nullable = false)
+	
 	private String bairro;
 	private Integer numero;
 	private String cep;
