@@ -1,6 +1,9 @@
 package br.com.barbeariaFurao.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.barbeariaFurao.conversor.EnderecoConversor;
@@ -17,15 +20,12 @@ public class CadastrarEnderecoServiceImpl {
 	@Autowired
 	private EnderecoConversor enderecoConversor;
 	
-	public void cadastrar(EnderecoResource enderecoResource) {
+	public ResponseEntity<Endereco> cadastrar(EnderecoResource enderecoResource) throws EnderecoResouceException {
 		Endereco conversor;
-		try {
-			conversor = enderecoConversor.conversor(enderecoResource);
-			enderecoRepository.saveAndFlush(conversor);
-		} catch (EnderecoResouceException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		conversor = enderecoConversor.conversor(enderecoResource);
+		enderecoRepository.saveAndFlush(conversor);
+		return ResponseEntity.ok(conversor);
+		
 	}
 
 }

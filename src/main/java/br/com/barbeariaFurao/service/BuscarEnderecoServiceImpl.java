@@ -21,7 +21,7 @@ public class BuscarEnderecoServiceImpl {
 		return enderecoRepository.findAll(); 
 	}
 	
-	public Endereco buscarEnderecoPorId(Long id) throws EnderecoNotFoundException {
+	public  Endereco buscarEnderecoPorId(Long id) throws EnderecoNotFoundException {
 		Optional<Endereco> findById = enderecoRepository.findById(id);
 		Endereco endereco = null;
 		if(!findById.isPresent()) {

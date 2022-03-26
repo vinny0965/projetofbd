@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.barbeariaFurao.datasouce.model.Endereco;
 import br.com.barbeariaFurao.exception.EnderecoNotFoundException;
+import br.com.barbeariaFurao.exception.EnderecoResouceException;
 import br.com.barbeariaFurao.resource.model.EnderecoResource;
 import br.com.barbeariaFurao.service.BuscarEnderecoServiceImpl;
 import br.com.barbeariaFurao.service.CadastrarEnderecoServiceImpl;
@@ -28,7 +29,7 @@ public class EnderecoController {
 	private BuscarEnderecoServiceImpl buscarEnderecoServiceImpl;
 	
 	@PostMapping(path = "/endereco/save")
-	public void cadastrarEndereco(@RequestBody EnderecoResource enderecoResource) {
+	public void cadastrarEndereco(@RequestBody EnderecoResource enderecoResource) throws EnderecoResouceException {
 		cadastrarEnderecoServiceImpl.cadastrar(enderecoResource);
 	}
 	
