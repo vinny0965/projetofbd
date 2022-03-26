@@ -1,11 +1,14 @@
 package br.com.barbeariaFurao.datasouce.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -26,6 +29,12 @@ public class Endereco implements Serializable{
 	private String bairro;
 	private Integer numero;
 	private String cep;
+	
+	@OneToMany(mappedBy = "endereco")
+	private List<Administrador>administradores = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "endereco")
+	private List<Cliente>clientes = new ArrayList<>();
 	
 	
 	@SuppressWarnings("unused")
