@@ -9,8 +9,10 @@ import org.springframework.stereotype.Component;
 import br.com.barbeariaFurao.datasouce.model.Administrador;
 import br.com.barbeariaFurao.datasouce.model.Endereco;
 import br.com.barbeariaFurao.exception.AdministradorResourceException;
+import br.com.barbeariaFurao.exception.EnderecoNotFoundException;
 import br.com.barbeariaFurao.repository.EnderecoRepository;
 import br.com.barbeariaFurao.resource.model.AdministradorResource;
+import br.com.barbeariaFurao.service.BuscarEnderecoServiceImpl;
 
 @Component
 public class AdministradorConversor {
@@ -18,16 +20,19 @@ public class AdministradorConversor {
 	@Autowired
 	private EnderecoRepository enderecoRepository;
 	
+	@Autowired
+	private BuscarEnderecoServiceImpl buscarEnderecoServiceImpl;
 	
-public Administrador conversor(AdministradorResource administradorResource) throws AdministradorResourceException {
-		
+public Administrador conversor(AdministradorResource administradorResource) throws AdministradorResourceException, EnderecoNotFoundException {
+		Long checkIdEndereco = checkIdEndereco(administradorResource.getEndereco());
+		Endereco buscarEnderecoPorId = buscarEnderecoServiceImpl.buscarEnderecoPorId(checkIdEndereco);
+
 		try {
 			Administrador administrador = new Administrador();
 			LocalDate ceckDataNascimento = ceckDataNascimento(administradorResource.getDataNascimento());
-			Long checkIdEndereco = checkIdEndereco(administradorResource.getEndereco());
-			Optional<Endereco> findById = enderecoRepository.findById(checkIdEndereco);
-			if(findById.isPresent()) {
-				Endereco endereco = findById.get();
+//			Optional<Endereco> findById = enderecoRepository.findById(checkIdEndereco);
+			if(buscarEnderecoPorId !=null) {
+				Endereco endereco = buscarEnderecoPorId;
 				administrador.setEndereco(endereco);
 			}
 			administrador.setCpf(administradorResource.getCpf());

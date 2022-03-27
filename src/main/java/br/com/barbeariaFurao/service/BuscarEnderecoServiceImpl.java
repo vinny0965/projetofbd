@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.barbeariaFurao.datasouce.model.Endereco;
@@ -22,15 +24,25 @@ public class BuscarEnderecoServiceImpl {
 	}
 	
 	public  Endereco buscarEnderecoPorId(Long id) throws EnderecoNotFoundException {
-		Optional<Endereco> findById = enderecoRepository.findById(id);
-		Endereco endereco = null;
-		if(!findById.isPresent()) {
-			throw new EnderecoNotFoundException("endereco não encontrado pelo ID:"+id);
-		}else {
-			endereco = findById.get();
+		try {
+			Optional<Endereco> findById = enderecoRepository.findById(id);
+			Endereco endereco = findById.get();
+			return endereco;
+		} catch (Exception e) {
+			throw new EnderecoNotFoundException("Endereco não encontrado pelo id"+id);
 		}
-		return endereco;
 	}
+//	public  Endereco buscarEnderecoPorId(Long id) throws EnderecoNotFoundException {
+//		Optional<Endereco> findById = enderecoRepository.findById(id);
+//		Endereco endereco = null;
+//		if(!findById.isPresent()) {
+//			throw new EnderecoNotFoundException("endereco não encontrado pelo ID:"+id);
+//		}else {
+//			endereco = findById.get();
+//		}
+//		ResponseEntity.ok(endereco);
+//		return endereco;
+//	}
 	
 	public void AtualizarEndereco(EnderecoResource enderecoResource, Long id) {
 		Optional<Endereco> findById = enderecoRepository.findById(id);

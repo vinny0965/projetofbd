@@ -20,7 +20,7 @@ public class CadastrarAdministradorServiceImpl {
 	@Autowired
 	private AdministradorConversor administradorConversor;
 	
-	public ResponseEntity<Administrador> cadastrar(AdministradorResource administradorResource) throws AdministradorResourceException{
+	public ResponseEntity<Administrador> cadastrar(AdministradorResource administradorResource) throws AdministradorResourceException, EnderecoNotFoundException{
 		Administrador conversor = administradorConversor.conversor(administradorResource);
 		administradorRepository.saveAndFlush(conversor);
 		return ResponseEntity.ok(conversor);
