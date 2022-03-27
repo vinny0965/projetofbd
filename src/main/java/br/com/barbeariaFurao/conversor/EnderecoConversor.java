@@ -2,8 +2,7 @@ package br.com.barbeariaFurao.conversor;
 
 import org.springframework.stereotype.Component;
 
-
-import br.com.barbeariaFurao.datasouce.model.Endereco;
+import br.com.barbeariaFurao.datasource.model.Endereco;
 import br.com.barbeariaFurao.exception.EnderecoResouceException;
 import br.com.barbeariaFurao.resource.model.EnderecoResource;
 

@@ -1,4 +1,4 @@
-package br.com.barbeariaFurao.datasouce.model;
+package br.com.barbeariaFurao.datasource.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -16,21 +16,18 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "administradores")
-public class Administrador implements Serializable{
-
+@Table(name = "clientes")
+public class Cliente implements Serializable{
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -518920826497204628L;
-	
+	private static final long serialVersionUID = -8943697009523913991L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private String cpf;
-	private String login;
-	private String senha;
 	private String email;
 	private String sexo;
 	private String telefone;
@@ -41,22 +38,18 @@ public class Administrador implements Serializable{
 	@JoinColumn(name = "id_endereco", nullable = false)
 	private Endereco endereco;
 	
-	@OneToMany(mappedBy = "administrador")
-	private List<Servico>servicos = new ArrayList<>();
-
+	@OneToMany(mappedBy = "cliente")
+	private List<Agendamento>agendamentos = new ArrayList<>();
+	
 	@SuppressWarnings("unused")
-	public Administrador() {
+	public Cliente() {
 	}
-	
-	@OneToMany(mappedBy = "administrador")
-	private List<CupomDesconto>cupomDescontos = new ArrayList<>();
-	
-	public Administrador(String nome, String cpf, String login, String senha, String email, String sexo,
-			String telefone, LocalDate dataNascimento, Endereco endereco) {
+
+	public Cliente(String nome, String cpf, String email, String sexo, String telefone, LocalDate dataNascimento,
+			Endereco endereco) {
+		super();
 		this.nome = nome;
 		this.cpf = cpf;
-		this.login = login;
-		this.senha = senha;
 		this.email = email;
 		this.sexo = sexo;
 		this.telefone = telefone;
@@ -78,22 +71,6 @@ public class Administrador implements Serializable{
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
 	}
 
 	public String getEmail() {
@@ -139,9 +116,6 @@ public class Administrador implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	
-	
-	
 
+	
 }

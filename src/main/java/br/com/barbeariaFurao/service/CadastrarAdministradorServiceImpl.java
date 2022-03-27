@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.barbeariaFurao.conversor.AdministradorConversor;
-import br.com.barbeariaFurao.datasouce.model.Administrador;
+import br.com.barbeariaFurao.datasource.model.Administrador;
 import br.com.barbeariaFurao.exception.AdministradorResourceException;
 import br.com.barbeariaFurao.exception.EnderecoNotFoundException;
 import br.com.barbeariaFurao.repository.AdministradorRepository;

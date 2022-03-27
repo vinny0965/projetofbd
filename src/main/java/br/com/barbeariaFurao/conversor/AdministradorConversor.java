@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import br.com.barbeariaFurao.datasouce.model.Administrador;
-import br.com.barbeariaFurao.datasouce.model.Endereco;
+import br.com.barbeariaFurao.datasource.model.Administrador;
+import br.com.barbeariaFurao.datasource.model.Endereco;
 import br.com.barbeariaFurao.exception.AdministradorResourceException;
 import br.com.barbeariaFurao.exception.EnderecoNotFoundException;
 import br.com.barbeariaFurao.repository.EnderecoRepository;

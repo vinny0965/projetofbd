@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.barbeariaFurao.datasouce.model.FluxoCaixa;
+import br.com.barbeariaFurao.datasource.model.FluxoCaixa;
 import br.com.barbeariaFurao.service.BuscarFluxoCaixaServiceImpl;
 
 @RestController

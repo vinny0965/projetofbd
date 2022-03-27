@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.barbeariaFurao.datasouce.model.CupomDesconto;
+import br.com.barbeariaFurao.datasource.model.CupomDesconto;
 import br.com.barbeariaFurao.repository.CupomRepository;
 
 @Service

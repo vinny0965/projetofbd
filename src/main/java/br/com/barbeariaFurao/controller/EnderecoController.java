@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.barbeariaFurao.datasouce.model.Endereco;
+import br.com.barbeariaFurao.datasource.model.Endereco;
 import br.com.barbeariaFurao.exception.EnderecoNotFoundException;
 import br.com.barbeariaFurao.exception.EnderecoResouceException;
 import br.com.barbeariaFurao.resource.model.EnderecoResource;

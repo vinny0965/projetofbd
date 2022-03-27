@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.barbeariaFurao.conversor.AdministradorConversor;
-import br.com.barbeariaFurao.datasouce.model.Administrador;
-import br.com.barbeariaFurao.datasouce.model.Endereco;
+import br.com.barbeariaFurao.datasource.model.Administrador;
+import br.com.barbeariaFurao.datasource.model.Endereco;
 import br.com.barbeariaFurao.exception.AdministradorNotFoundException;
 import br.com.barbeariaFurao.exception.AdministradorResourceException;
 import br.com.barbeariaFurao.exception.EnderecoNotFoundException;

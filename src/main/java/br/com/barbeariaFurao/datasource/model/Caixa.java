@@ -1,9 +1,7 @@
-package br.com.barbeariaFurao.datasouce.model;
+package br.com.barbeariaFurao.datasource.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,22 +10,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "clientes")
-public class Cliente implements Serializable{
+@Table(name = "caixas")
+public class Caixa implements Serializable{
 	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8943697009523913991L;
+	private static final long serialVersionUID = -6735288673219979651L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private String cpf;
+	private String matricula;
+	private String login;
+	private String senha;
 	private String email;
 	private String sexo;
 	private String telefone;
@@ -37,19 +37,18 @@ public class Cliente implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "id_endereco", nullable = false)
 	private Endereco endereco;
-	
-	@OneToMany(mappedBy = "cliente")
-	private List<Agendamento>agendamentos = new ArrayList<>();
-	
-	@SuppressWarnings("unused")
-	public Cliente() {
-	}
 
-	public Cliente(String nome, String cpf, String email, String sexo, String telefone, LocalDate dataNascimento,
-			Endereco endereco) {
-		super();
+	@SuppressWarnings("unused")
+	public Caixa() {
+	}
+	
+	public Caixa(String nome, String cpf, String matricula, String login, String senha, String email, String sexo,
+			String telefone, LocalDate dataNascimento, Endereco endereco) {
 		this.nome = nome;
 		this.cpf = cpf;
+		this.matricula = matricula;
+		this.login = login;
+		this.senha = senha;
 		this.email = email;
 		this.sexo = sexo;
 		this.telefone = telefone;
@@ -71,6 +70,30 @@ public class Cliente implements Serializable{
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public String getEmail() {
@@ -117,5 +140,6 @@ public class Cliente implements Serializable{
 		return serialVersionUID;
 	}
 
+	
 	
 }

@@ -1,7 +1,9 @@
-package br.com.barbeariaFurao.datasouce.model;
+package br.com.barbeariaFurao.datasource.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,22 +12,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "caixas")
-public class Caixa implements Serializable{
-	
+@Table(name = "administradores")
+public class Administrador implements Serializable{
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -6735288673219979651L;
+	private static final long serialVersionUID = -518920826497204628L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private String cpf;
-	private String matricula;
 	private String login;
 	private String senha;
 	private String email;
@@ -37,16 +40,21 @@ public class Caixa implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "id_endereco", nullable = false)
 	private Endereco endereco;
+	
+	@OneToMany(mappedBy = "administrador")
+	private List<Servico>servicos = new ArrayList<>();
 
 	@SuppressWarnings("unused")
-	public Caixa() {
+	public Administrador() {
 	}
 	
-	public Caixa(String nome, String cpf, String matricula, String login, String senha, String email, String sexo,
+	@OneToMany(mappedBy = "administrador")
+	private List<CupomDesconto>cupomDescontos = new ArrayList<>();
+	
+	public Administrador(String nome, String cpf, String login, String senha, String email, String sexo,
 			String telefone, LocalDate dataNascimento, Endereco endereco) {
 		this.nome = nome;
 		this.cpf = cpf;
-		this.matricula = matricula;
 		this.login = login;
 		this.senha = senha;
 		this.email = email;
@@ -70,14 +78,6 @@ public class Caixa implements Serializable{
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
-	}
-
-	public String getMatricula() {
-		return matricula;
-	}
-
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
 	}
 
 	public String getLogin() {
@@ -139,7 +139,9 @@ public class Caixa implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
+	
+	
+	
 
-	
-	
 }

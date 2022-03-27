@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.barbeariaFurao.conversor.EnderecoConversor;
-import br.com.barbeariaFurao.datasouce.model.Endereco;
+import br.com.barbeariaFurao.datasource.model.Endereco;
 import br.com.barbeariaFurao.exception.EnderecoResouceException;
 import br.com.barbeariaFurao.repository.EnderecoRepository;
 import br.com.barbeariaFurao.resource.model.EnderecoResource;

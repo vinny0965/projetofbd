@@ -1,4 +1,4 @@
-package br.com.barbeariaFurao.datasouce.model;
+package br.com.barbeariaFurao.datasource.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
