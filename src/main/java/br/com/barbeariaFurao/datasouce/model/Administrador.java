@@ -48,6 +48,8 @@ public class Administrador implements Serializable{
 	public Administrador() {
 	}
 	
+	@OneToMany(mappedBy = "administrador")
+	private List<CupomDesconto>cupomDescontos = new ArrayList<>();
 	
 	public Administrador(String nome, String cpf, String login, String senha, String email, String sexo,
 			String telefone, LocalDate dataNascimento, Endereco endereco) {
