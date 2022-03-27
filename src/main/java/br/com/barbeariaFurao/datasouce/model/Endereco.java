@@ -36,6 +36,8 @@ public class Endereco implements Serializable{
 	@OneToMany(mappedBy = "endereco")
 	private List<Cliente>clientes = new ArrayList<>();
 	
+	@OneToMany(mappedBy = "endereco")
+	private List<Caixa>caixas = new ArrayList<>();
 	
 	@SuppressWarnings("unused")
 	public Endereco() {
