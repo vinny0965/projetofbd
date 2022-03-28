@@ -35,6 +35,11 @@ public class AdministradorController {
 		return buscarAdministradorServiceImpl.listarAdministradores();
 	}
 	
+	@GetMapping(path = "/administrador/id/{id}")
+	public Administrador buscarAdministradorPorId(@PathVariable(name = "id",required = true)Long id) throws AdministradorNotFoundException {
+		return buscarAdministradorServiceImpl.buscarAdministradorPorId(id);
+	}
+	
 	@PostMapping(path = "/administrador/save")
 	public void cadastrarAdministrador(@RequestBody AdministradorResource administradorResource) throws AdministradorResourceException, EnderecoNotFoundException {
 		cadastrarAdministradorServiceImpl.cadastrar(administradorResource);

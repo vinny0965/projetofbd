@@ -36,4 +36,10 @@ public class AplicationExceptionHandeler extends ResponseEntityExceptionHandler{
 		return new ResponseEntity(error,HttpStatus.NOT_FOUND);
 	}
 	
+	@ExceptionHandler(ClienteNotFoundException.class)
+	public ResponseEntity exceptionNotFoundCliente(Exception e) {
+		DefaultError error = new DefaultError(HttpStatus.NOT_FOUND.value(), "cliente não encontrado pelo id");
+		return new ResponseEntity(error,HttpStatus.NOT_FOUND);
+	}
+	
 }
