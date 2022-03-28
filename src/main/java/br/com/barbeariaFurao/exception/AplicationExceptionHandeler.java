@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import br.com.barbeariaFurao.dto.DefaultError;
-
 
 @ControllerAdvice
 public class AplicationExceptionHandeler extends ResponseEntityExceptionHandler{

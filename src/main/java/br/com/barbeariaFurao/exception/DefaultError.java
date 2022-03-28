@@ -1,4 +1,4 @@
-package br.com.barbeariaFurao.dto;
+package br.com.barbeariaFurao.exception;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
