@@ -17,5 +17,6 @@ public class BuscarFluxoCaixaServiceImpl {
 	public List<FluxoCaixa> listarFluxosCaixa(){
 		return fluxoCaixaRepository.findAll();
 	}
+	
 
 }
